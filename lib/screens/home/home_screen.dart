@@ -1,4 +1,3 @@
-import 'package:demo_news/screens/home/home_news_widget/home_news_list_item_widget.dart';
 import 'package:demo_news/screens/home/home_news_widget/home_news_list_widget.dart';
 import 'package:demo_news/screens/home/widgets/dialogs/home_select_location_dialog.dart';
 import 'package:demo_news/widgets/common/common_appbar.dart';
@@ -60,8 +59,20 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Row(
                 children: [
-                  const Icon(Icons.near_me),
-                  Text(context.read<HomeNewsProvider>().defaultCountryCode)
+                  const Icon(
+                    Icons.near_me,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    context
+                        .read<HomeNewsProvider>()
+                        .defaultCountryCode
+                        .toUpperCase(),
+                    style: const TextStyle(color: Colors.white),
+                  )
                 ],
               ))
         ],

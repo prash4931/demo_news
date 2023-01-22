@@ -1,47 +1,20 @@
-import 'package:demo_news/core/constants/color_constants.dart';
-import 'package:demo_news/core/routes.dart';
-import 'package:demo_news/screens/home/home_screen.dart';
-import 'package:demo_news/widgets/common/common_textformfield.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+import '../../core/constants/color_constants.dart';
+import '../../core/routes.dart';
+import '../../widgets/common/common_textformfield.dart';
+
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailTEC = TextEditingController();
   final TextEditingController passwordTEC = TextEditingController();
-  final GlobalKey<FormState> _logInformKey = GlobalKey<FormState>();
-
-  // void signIn({required String emailAddress, required String password}) async {
-  //   try {
-  //     final credential = await FirebaseAuth.instance
-  //         .signInWithEmailAndPassword(email: emailAddress, password: password);
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //       print('No user found for that email.');
-  //     } else if (e.code == 'wrong-password') {
-  //       print('Wrong password provided for that user.');
-  //     }
-  //   }
-  // }
-
-  // @override
-  // void initState() {
-  //   FirebaseAuth.instance.authStateChanges().listen((User? user) {
-  //     if (user == null) {
-  //       print('User is currently signed out!');
-  //     } else {
-  //       print('User is signed in!');
-  //     }
-  //   });
-  //   super.initState();
-  // }
-
+  final TextEditingController nameTEC = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,13 +22,10 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           'MyNews',
           style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: ColorConstants().primaryColor),
+              fontSize: 18, fontWeight: FontWeight.w600, color: Colors.indigo),
         ),
       ),
       body: Padding(
@@ -63,6 +33,15 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            CommonTextFormField(
+              labelHeading: 'Name',
+              hintText: 'Enter Name',
+              keyboardType: TextInputType.name,
+              controller: nameTEC,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             CommonTextFormField(
               labelHeading: 'Email',
               hintText: 'Enter Email',
@@ -78,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
               hintText: 'Enter Password',
               keyboardType: TextInputType.visiblePassword,
               controller: passwordTEC,
+              textInputAction: TextInputAction.done,
             )
           ],
         ),
@@ -95,25 +75,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(10))),
                     fixedSize: MaterialStateProperty.all(
                         Size(MediaQuery.of(context).size.width * 0.6, 50))),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const HomeScreen();
-                    },
-                  ));
-                },
-                child: const Text('Login')),
+                onPressed: () {},
+                child: const Text('Signup')),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('New here?'),
+              const Text('Already have an account?'),
               TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.signUp);
+                    Navigator.pushNamed(context, Routes.login);
                   },
                   child: Text(
-                    'Signup',
+                    'Login',
                     style: TextStyle(color: ColorConstants().primaryColor),
                   ))
             ],

@@ -1,6 +1,4 @@
-import 'package:demo_news/providers/home/home_news_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../models/news_article_model/news_article_model.dart';
 import 'home_news_list_item_widget.dart';

@@ -100,6 +100,7 @@ class CommonTextFormField extends StatelessWidget {
       onFieldSubmitted: onSubmittedRequired == true
           ? (_) => FocusScope.of(context).nextFocus()
           : null,
+      style: const TextStyle(),
       // style: baseTextTheme.textFieldValueTextStyle,
       textCapitalization: TextCapitalization.sentences,
       textAlign: textAlign ?? TextAlign.start,
@@ -115,43 +116,43 @@ class CommonTextFormField extends StatelessWidget {
               const BoxConstraints(minWidth: 20, minHeight: 20),
           isDense: true,
           hintText: hintText ?? '',
+          hintStyle: const TextStyle(),
           // hintStyle: hintStyle ?? baseTextTheme.textFieldHintTextStyle,
-          // errorStyle:
-          //     TextStyle(fontSize: 13, color: baseColorTheme.reOpenStatus),
+          errorStyle: const TextStyle(fontSize: 13, color: Colors.red),
           floatingLabelBehavior:
               isFixedlabel == true ? FloatingLabelBehavior.always : null,
           label: labelHeading != null
               ? RichText(
                   text: TextSpan(children: [
                   TextSpan(
-                    text: labelHeading,
-                    // style: baseTextTheme.textFieldHintTextStyle,
-                  ),
+                      text: labelHeading,
+                      style: const TextStyle(color: Colors.black)
+                      // style: baseTextTheme.textFieldHintTextStyle,
+                      ),
                   if (isImportantStarLabelRequired == true)
-                    TextSpan(
-                      text: " *",
-                      // style: baseTextTheme.textFieldHintTextStyle
-                      //     .copyWith(color: baseColorTheme.reOpenStatus)
-                    ),
+                    const TextSpan(text: " *", style: TextStyle()
+                        // style: baseTextTheme.textFieldHintTextStyle
+                        //     .copyWith(color: baseColorTheme.reOpenStatus)
+                        ),
                 ]))
               : null,
-          focusedErrorBorder: OutlineInputBorder(
+          focusedErrorBorder: const OutlineInputBorder(
               // borderSide:
               //     BorderSide(color: baseColorTheme.importantStarTextColor)
               ),
           errorBorder: (controller != null && controller!.text.isNotEmpty)
               ? null
-              : OutlineInputBorder(
+              : const OutlineInputBorder(
                   // borderSide:
                   //     BorderSide(color: baseColorTheme.importantStarTextColor)
                   ),
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               // borderSide:
               //     BorderSide(color: baseColorTheme.textfieldInputBorderColor)
               ),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               // borderSide:
               //     BorderSide(color: baseColorTheme.textfieldInputBorderColor)
               )),

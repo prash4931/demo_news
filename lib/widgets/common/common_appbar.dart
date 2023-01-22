@@ -45,7 +45,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: ColorConstants().primaryColor,
         foregroundColor: Colors.white,
         centerTitle: centerTitle ?? true,
-        actionsIconTheme: IconThemeData(color: Colors.white),
+        actionsIconTheme: const IconThemeData(color: Colors.white),
         title: isImageTitle == true
             ? Image.asset(
                 image ?? '',

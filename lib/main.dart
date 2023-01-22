@@ -1,9 +1,14 @@
 import 'package:demo_news/screens/auth/login_screen.dart';
 import 'package:demo_news/services/all_provider_list.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'core/routes.dart';
+
+void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(MultiProvider(providers: allproviderList(), child: const MyApp()));
 }
 
@@ -13,8 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'News Demo',
+      title: 'My News',
+      initialRoute: Routes.login,
       home: LoginScreen(),
+      onGenerateRoute: Routes.generateRoutes,
     );
   }
 }

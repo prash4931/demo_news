@@ -53,6 +53,15 @@ dependencies:
   # allows you to add hex color codes to your flutter projects
   hexcolor: ^3.0.1
 
+  # A Flutter plugin to use the Firebase Core API, which enables connecting to multiple Firebase apps.
+  firebase_core: ^2.4.1
+
+  # A Flutter plugin to use the Firebase Authentication API.
+  firebase_auth: ^4.2.5
+
+  # A Flutter plugin to use the Cloud Firestore API.
+  cloud_firestore: ^4.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

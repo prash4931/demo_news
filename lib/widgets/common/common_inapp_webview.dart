@@ -56,7 +56,7 @@ class _CommonInAppWebViewState extends State<CommonInAppWebView> {
                     action: PermissionRequestResponseAction.GRANT);
               },
             ),
-            if (isLoading) Center(child: CircularProgressIndicator())
+            if (isLoading) const Center(child: CircularProgressIndicator())
           ],
         ),
       ),
