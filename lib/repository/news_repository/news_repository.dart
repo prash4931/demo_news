@@ -7,10 +7,13 @@ import 'package:demo_news/repository/news_repository/i_news_repository.dart';
 
 class NewsRepository extends INewsRepository {
   @override
-  Future<NewsResponseModel?> getNews({required String countryCode}) async {
+  Future<NewsResponseModel?> getNews(
+      {required String countryCode,
+      required int pageSize,
+      required int page}) async {
     try {
-      const url =
-          'https://newsapi.org/v2/top-headlines?country=in&apiKey=535b8d8372a24ec0afe843ea4af27234';
+      final url =
+          'https://newsapi.org/v2/top-headlines?country=$countryCode&apiKey=535b8d8372a24ec0afe843ea4af27234&pageSize=$pageSize&page=$page';
 
       final response = await getHttp(url: url);
 

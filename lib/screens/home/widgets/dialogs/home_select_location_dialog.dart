@@ -25,7 +25,14 @@ class HomeSelectLocationDialog extends StatelessWidget {
                 itemCount: list.length,
                 itemBuilder: (context, index) {
                   final listItem = list[index];
-                  return TextButton(onPressed: () {}, child: Text(listItem));
+                  return TextButton(
+                      onPressed: () {
+                        context
+                            .read<HomeNewsProvider>()
+                            .onCountryCodeChanged(listItem);
+                        Navigator.pop(context);
+                      },
+                      child: Text(listItem));
                 },
               ),
             )

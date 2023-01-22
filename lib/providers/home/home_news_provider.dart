@@ -11,6 +11,15 @@ class HomeNewsProvider extends ChangeNotifier {
 
   bool isNewsDataLoading = false;
 
+  final int pageSize = 20;
+  int page = 1;
+
+  int tempPageSize = 0;
+
+  bool isNewsDataLoadingMore = false;
+
+  String defaultCountryCode = 'in';
+
   init({required String countryCode}) {
     clearData();
     getMovies(countryCode: countryCode);
@@ -76,17 +85,28 @@ class HomeNewsProvider extends ChangeNotifier {
   clearData() {
     isNewsDataLoading = true;
     newsArticlesList.clear();
+    page = 1;
+    tempPageSize = pageSize;
+    notifyListeners();
+  }
+
+  onCountryCodeChanged(String value) {
+    defaultCountryCode = value;
+    init(countryCode: value);
     notifyListeners();
   }
 
   Future<void> getMovies({required String countryCode}) async {
-    final response = await repository.getNews(countryCode: countryCode);
+    final response = await repository.getNews(
+        countryCode: countryCode, page: page, pageSize: pageSize);
 
     if (response?.articles != null) {
+      page++;
       newsArticlesList.addAll(response!.articles!);
       notifyListeners();
     }
     isNewsDataLoading = false;
+    isNewsDataLoadingMore = false;
     notifyListeners();
   }
 }

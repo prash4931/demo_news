@@ -46,6 +46,10 @@ dependencies:
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
   provider: ^6.0.5
 
+
+  # allows you to add an inline webview, to use an headless webview, and to open an in-app browser window.
+  flutter_inappwebview: ^5.7.2+3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
