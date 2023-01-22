@@ -1,16 +1,21 @@
-# demo_news
+# My News
 
-A new Flutter project.
+A News App made with Flutter & Dart
 
-## Getting Started
+#Snapshots
 
-This project is a starting point for a Flutter application.
+Login Screen
 
-A few resources to get you started if this is your first Flutter project:
+![WhatsApp Image 2023-01-22 at 18 53 50](https://user-images.githubusercontent.com/39942340/213918192-04f1a9b6-8147-4c87-960c-1a5fabc37626.jpeg)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+SignUp Screen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![WhatsApp Image 2023-01-22 at 18 53 49](https://user-images.githubusercontent.com/39942340/213918236-7c6c5784-3d15-4ac0-86af-874a8f86dd2a.jpeg)
+
+Home Screen
+
+![WhatsApp Image 2023-01-22 at 18 53 51](https://user-images.githubusercontent.com/39942340/213918256-c2eb1fb7-06d8-473d-976d-b394fb78ce80.jpeg)
+
+Change Location Dialog
+
+![WhatsApp Image 2023-01-22 at 18 53 50 (1)](https://user-images.githubusercontent.com/39942340/213918261-52a429c4-896b-4789-b8df-99550d30242a.jpeg)
