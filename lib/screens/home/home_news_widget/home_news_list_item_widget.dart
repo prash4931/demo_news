@@ -1,3 +1,4 @@
+import 'package:demo_news/core/constants/textstyle_constants.dart';
 import 'package:demo_news/widgets/common/common_inapp_webview.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +26,9 @@ class HomeNewsListItemWidget extends StatelessWidget {
           }
         },
         child: Card(
-          color: newsListItem.url != null && newsListItem.url!.isNotEmpty
-              ? Colors.amberAccent
-              : Colors.white,
+          // color: newsListItem.url != null && newsListItem.url!.isNotEmpty
+          //     ? Colors.amberAccent
+          //     : Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           margin: EdgeInsets.zero,
@@ -42,7 +43,7 @@ class HomeNewsListItemWidget extends StatelessWidget {
                     children: [
                       Text(
                         newsListItem.source?.name ?? 'News Source Unavailable',
-                        style: const TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyleConstants().itemHeadingTextStyle,
                       ),
                       const SizedBox(
                         height: 10,
@@ -51,6 +52,7 @@ class HomeNewsListItemWidget extends StatelessWidget {
                         newsListItem.description ?? newsListItem.title ?? 'NA',
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
+                        style: TextStyleConstants().itemDescriptionTextStyle,
                       ),
                       const SizedBox(
                         height: 10,
@@ -58,9 +60,8 @@ class HomeNewsListItemWidget extends StatelessWidget {
                       Text(
                         // '10 min ago',
                         '${newsListItem.publishedAt ?? 'NA'}',
-                        style:
-                            const TextStyle(color: Colors.grey, fontSize: 10),
-                      )
+                        style: TextStyleConstants().itemDateTimeTextStyle,
+                      ),
                     ],
                   ),
                 ),

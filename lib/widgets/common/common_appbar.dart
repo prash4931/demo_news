@@ -1,3 +1,5 @@
+import 'package:demo_news/core/constants/color_constants.dart';
+import 'package:demo_news/core/constants/textstyle_constants.dart';
 import 'package:flutter/material.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -40,19 +42,18 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
+        backgroundColor: ColorConstants().primaryColor,
+        foregroundColor: Colors.white,
         centerTitle: centerTitle ?? true,
+        actionsIconTheme: IconThemeData(color: Colors.white),
         title: isImageTitle == true
             ? Image.asset(
                 image ?? '',
                 height: 50,
                 width: 100,
               )
-            : Text(
-                title ?? '',
-                // style: baseTextTheme.commonAppBarTextStyle,
-              ),
+            : Text(title ?? '',
+                style: TextStyleConstants().appBarHeadingTextStyle),
         leading: isLeadingRequired == true
             ? InkWell(
                 onTap: () {

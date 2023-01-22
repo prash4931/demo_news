@@ -1,10 +1,13 @@
 import 'package:demo_news/screens/home/home_news_widget/home_news_list_item_widget.dart';
 import 'package:demo_news/screens/home/home_news_widget/home_news_list_widget.dart';
 import 'package:demo_news/screens/home/widgets/dialogs/home_select_location_dialog.dart';
+import 'package:demo_news/widgets/common/common_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/constants/color_constants.dart';
+import '../../core/constants/textstyle_constants.dart';
 import '../../models/news_article_model/news_article_model.dart';
 import '../../providers/home/home_news_provider.dart';
 
@@ -40,16 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        leading: null,
-        foregroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: const Text('MyNews'),
+      backgroundColor: ColorConstants().faintPrimaryColor,
+      appBar: CommonAppBar(
+        title: 'MyNews',
+        isLeadingRequired: false,
+        centerTitle: false,
         actions: [
           TextButton(
-              style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(Colors.white)),
               onPressed: () {
                 showDialog(
                   context: context,
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Row(
                 children: [
-                  Icon(Icons.near_me),
+                  const Icon(Icons.near_me),
                   Text(context.read<HomeNewsProvider>().defaultCountryCode)
                 ],
               ))
@@ -94,9 +94,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Top Headlines',
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: TextStyleConstants().itemHeadingTextStyle,
           ),
           Expanded(
             child: HomeNewsListWidget(
